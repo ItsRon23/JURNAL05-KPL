@@ -1,24 +1,23 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Numerics;
+using System.Reflection.Metadata.Ecma335;
+
 internal class Program
 {
-    private static void Main(double[] args)
+    public static void Main(string[] args)
     {
-        Penjumlahan.jumlahTigaAngka<double>(13,02,23);
+        Console.WriteLine(Penjumlahan.jumlahTigaAngka<double>(13, 02, 23));
+
     }
 }
 
 class Penjumlahan
 {
 
-    public static void jumlahTigaAngka<T>(T num1, T num2, T num3) 
+    public static T jumlahTigaAngka<T>(T num1, T num2, T num3) where T : IAdditionOperators<T,T,T>
     { 
-        if (num1 == null || num2 == null || num3 == null) 
-        {
-            return;
-        }
-
-        dynamic result = 0;
-
-        result = num1 + num2 + num3;
+        // dynamic result = 0;
+        return num1 + num2 + num3;
+        
     }
 }
